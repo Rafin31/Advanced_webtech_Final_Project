@@ -97,7 +97,7 @@
                                                 <option value="">User Type</option>
                                                 <option value="clients">Clients</option>
                                                 <option value="bank_manager">Bank Manager</option>
-                                                <option value="noney_exchange_officer">Money exchange officer</option>
+                                                <option value="money_exchange_officer">Money exchange officer</option>
                                                 <option value="admin">Admin</option>
                                             </select>
                                         </div>

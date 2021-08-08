@@ -11,7 +11,7 @@ class ClientPDFController extends Controller
     function index()
     {
      $customer_data = $this->get_customer_data();
-     return view('client.client_pdf')->with('customer_data', $customer_data);
+     return view('Client.client_pdf')->with('customer_data', $customer_data);
     }
 
     function get_customer_data()
@@ -50,7 +50,7 @@ class ClientPDFController extends Controller
        <td style="border: 1px solid; padding:12px;">'.$customer->id.'</td>
        <td style="border: 1px solid; padding:12px;">'.$customer->account_balance.'</td>
        <td style="border: 1px solid; padding:12px;">'.$customer->account_type.'</td>
-       <td style="border: 1px solid; padding:12px;">'.$customer->nid_verification.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$customer->nid_varification.'</td>
        <td style="border: 1px solid; padding:12px;">'.$customer->account_status.'</td>
       </tr>
       ';

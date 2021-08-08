@@ -9,7 +9,7 @@ class ClientSearch extends Controller
 {
     function index()
     {
-     return view('client.client_search');
+     return view('Client.client_search');
     }
 
     function action(Request $request)
@@ -24,7 +24,7 @@ class ClientSearch extends Controller
          ->where('id', 'like', '%'.$query.'%')
          ->orWhere('account_balance', 'like', '%'.$query.'%')
          ->orWhere('account_type', 'like', '%'.$query.'%')
-         ->orWhere('nid_verification', 'like', '%'.$query.'%')
+         ->orWhere('nid_varification', 'like', '%'.$query.'%')
          ->orWhere('account_status', 'like', '%'.$query.'%')
          ->get();
          
@@ -45,7 +45,7 @@ class ClientSearch extends Controller
          <td>'.$row->id.'</td>
          <td>'.$row->account_balance.'</td>
          <td>'.$row->account_type.'</td>
-         <td>'.$row->nid_verification.'</td>
+         <td>'.$row->nid_varification.'</td>
          <td>'.$row->account_status.'</td>
         </tr>
         ';
