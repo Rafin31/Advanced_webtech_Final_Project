@@ -31,12 +31,12 @@ class loginController extends Controller
 
         //checking users
         if ($user) {
-            //checking account status
-            // if ($user['account_Status'] == 'pending') {
-            //     $req->session()->flash('msg', 'Your account is in pending');
-            //     return redirect()->route('login.login');
-            // } 
-            //else
+            // checking account status
+            if ($user['account_Status'] == 'pending') {
+                $req->session()->flash('msg', 'Your account is in pending');
+                return redirect()->route('login.login');
+            } 
+            else
             if ($user['account_Status'] == 'Block') {
 
                $req->session()->flash('msg', 'Your account is Blocked');
