@@ -229,9 +229,10 @@ Route::post('/manager/bug/add','ManagerController@addBugReport');
 //--------------------------Money Exchange Officer-------------------------
 //--------------------------Start-----------------------------
 
-Route::get('/login/meo', "LoginMeoController@index");
-Route::post('/login/meo', "LoginMeoController@verify");
-Route::get('/logout/meo', "LogoutController@logout");
+// Route::get('/login/meo', "LoginMeoController@index");
+// Route::post('/login/meo', "LoginMeoController@verify");
+// Route::get('/logout/meo', "LogoutController@logout");
+
 
 
 // Route::group(['middleware'=>['SessionMeo']],function()
