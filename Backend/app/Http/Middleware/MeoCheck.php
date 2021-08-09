@@ -16,7 +16,7 @@ class MeoCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->session()->get('user_type')=='meo')
+        if($request->session()->get('user_type')=='money_exchange_officer')
         {
             return $next($request);
         }

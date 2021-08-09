@@ -229,19 +229,20 @@ Route::post('/manager/bug/add','ManagerController@addBugReport');
 //--------------------------Money Exchange Officer-------------------------
 //--------------------------Start-----------------------------
 
-Route::get('/login/meo', "LoginMeoController@index");
-Route::post('/login/meo', "LoginMeoController@verify");
-Route::get('/logout/meo', "LogoutController@logout");
+// Route::get('/login/meo', "LoginMeoController@index");
+// Route::post('/login/meo', "LoginMeoController@verify");
+// Route::get('/logout/meo', "LogoutController@logout");
 
 
-// Route::group(['middleware'=>['sessionMeo']],function()
+
+// Route::group(['middleware'=>['SessionMeo']],function()
 // {
 
 
 // used middleware for session and type checking
 
-Route::group(['middleware'=>['meo']],function()
-{
+// Route::group(['middleware'=>['MeoCheck']],function()
+// {
     Route::get('/homeMeo', "HomeMeoController@index");
     Route::get('/requestView', "reqController@index");
     Route::get('/addRequest', "reqController@show");
@@ -326,7 +327,8 @@ Route::group(['middleware'=>['meo']],function()
      
     
 
-});
+// });
+// });
 //---------------------------sessoion check Ends here-----------------------------------------
 
 
