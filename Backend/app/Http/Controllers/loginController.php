@@ -35,11 +35,10 @@ class loginController extends Controller
             if ($user['account_Status'] == 'pending') {
                 $req->session()->flash('msg', 'Your account is in pending');
                 return redirect()->route('login.login');
-            } 
-            else
+            } else
             if ($user['account_Status'] == 'Block') {
 
-               $req->session()->flash('msg', 'Your account is Blocked');
+                $req->session()->flash('msg', 'Your account is Blocked');
                 return redirect()->route('login.login');
             } else {
 
@@ -65,7 +64,7 @@ class loginController extends Controller
                         $req->session()->put('user_name', $req->user_name);
                         $req->session()->put('user_id', $user['id']);
                         $req->session()->put('user_type', $user['user_type']);
-                        return redirect ('/homeMeo');
+                        return redirect('/homeMeo');
                     } else {
                         $req->session()->flash('msg', 'invaild request');
                         return redirect()->route('login.login');
@@ -77,7 +76,7 @@ class loginController extends Controller
             }
         } else {
             $req->session()->flash('msg', 'invaild User Name or password');
-             return redirect()->route('login.login');
+            return redirect()->route('login.login');
         }
     }
     public function dashbord()

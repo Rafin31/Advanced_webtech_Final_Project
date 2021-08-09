@@ -1,3 +1,6 @@
+body{
+  background-color: #f4f3f9;
+}
 input , select {
     margin: 10px 0px 10px 0px;
 }
@@ -16,7 +19,7 @@ input , select {
 
 .sidebar {
     font-size: 15px !important;
-    margin: 0;
+    margin: 0px 25px 0px 0px;
     padding: 0;
     left: 0;
     width: 200px;
@@ -46,7 +49,7 @@ input , select {
     color: white;
   }
   div.content {
-    margin-left: 20%;
+    margin-left: 15%;
     padding: 1px 16px;
     height: 1000px;
   }
@@ -61,7 +64,7 @@ input , select {
 
 /* Dashboard */
 .gradient-1{
-    background: linear-gradient(45deg,#314755, #26a0da);
+    background: linear-gradient(45deg,#314755, #26a0da) !important;
     
 }
 .gradient-2{
@@ -76,11 +79,13 @@ input , select {
     background: linear-gradient(45deg,#9796f0, #fbc7d4);
     
 }
-.card{
-    height: 100%;
-    border: 0;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.card_in_dashboard{
+  min-height: 100% !important;
+  
+  border: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+
 .head{
     font-size: 2rem;
     text-align: center;
@@ -120,9 +125,24 @@ input , select {
       width: 100%;
       height: auto;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+    
+    div.content {
+      margin-left: 0;
+    }
+    .gradient-2{
+     margin: 15px 0px 15px 0px;
+      
+  }
+  .gradient-3{
+     margin: 15px 0px 15px 0px;
+   }
+     
+    .sidebar a {
+     margin: 0;
+    }
   }
   
   /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
