@@ -24,7 +24,6 @@ class loginController extends Controller
     public function loginVarify(loginForm $req)
     {
         $user_name = $req->user_name;
-        $password = bcrypt($req->password);
 
         $user = loginModel::where('user_name', $user_name)
             ->first();

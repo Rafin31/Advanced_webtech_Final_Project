@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/signup', "adminAPI@insertUser");
+Route::post('/signin', "adminAPI@loginVarify");
