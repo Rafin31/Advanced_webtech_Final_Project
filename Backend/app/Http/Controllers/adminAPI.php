@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\loginModel;
@@ -46,7 +47,11 @@ class adminAPI extends Controller
                 $user->phone_number =  $req->phone_number;
                 $user->profile_picture =  'null';
                 $user->user_type =  $req->user_type;
-                $user->account_Status =  'active';
+                if ($req->user_type == 'admin') {
+                    $user->account_Status =  'active';
+                } else {
+                    $user->account_Status =  'pending';
+                }
                 $user->save();
 
                 $list = usersModel::all()->last();
@@ -58,7 +63,12 @@ class adminAPI extends Controller
                 $login->user_name = $req->user_name;
                 $login->password =  bcrypt($req->password);
                 $login->user_type = $req->user_type;
-                $login->account_Status = 'active';
+                //  $login->account_Status = 'active';
+                if ($req->user_type == 'admin') {
+                    $login->account_Status =  'active';
+                } else {
+                    $login->account_Status =  'pending';
+                }
                 $login->save();
                 DB::commit();
                 return response()->json([
@@ -69,11 +79,93 @@ class adminAPI extends Controller
                 return response()->json([
                     'status' => 201,
                 ]);
-                //throw $th;
             }
         }
+    }
 
 
-        //return usersModel::find(1014)->login;
+
+    public function loginVarify(Request $req)
+    {
+
+
+
+        $validator = Validator::make($req->all(), [
+
+            'user_name' => ['required'],
+            'password' => ['required'],
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 201,
+                'error' => $validator->errors(),
+            ]);
+        } else {
+            $user_name = $req->user_name;
+            $password = bcrypt($req->password);
+
+            $user = loginModel::where('user_name', $user_name)
+                ->first();
+
+            //checking users
+            if ($user) {
+                // checking account status
+                if ($user['account_Status'] == 'pending') {
+                    return response()->json([
+                        'status' => 201,
+                        'error' => "Account is in Pending ",
+                    ]);
+                } else
+            if ($user['account_Status'] == 'Block') {
+                    return response()->json([
+                        'status' => 201,
+                        'error' => "Your account is Block. Please contact with admin",
+                    ]);
+                } else {
+
+                    if (Hash::check($req->password, $user['password'])) {
+                        if ($user['user_type'] == 'admin') {
+
+                            return response()->json([
+                                'status' => 200,
+                                'user' => $user,
+                            ]);
+                        } elseif ($user['user_type'] == 'clients') {
+                            // client
+                            return response()->json([
+                                'status' => 200,
+                                'user' => $user,
+                            ]);
+                        } elseif ($user['user_type'] == 'bank_manager') {
+                            return response()->json([
+                                'status' => 200,
+                                'user' => $user,
+                            ]);
+                        } elseif ($user['user_type'] == 'money_exchange_officer') {
+                            return response()->json([
+                                'status' => 200,
+                                'user' => $user,
+                            ]);
+                        } else {
+                            return response()->json([
+                                'status' => 201,
+                                'error' => "Password incorrect",
+                            ]);
+                        }
+                    } else {
+                        return response()->json([
+                            'status' => 201,
+                            'error' => "Invalid user name and password",
+                        ]);
+                    }
+                }
+            } else {
+                return response()->json([
+                    'status' => 201,
+                    'error' => "Invalid user name and password",
+                ]);
+            }
+        }
     }
 }

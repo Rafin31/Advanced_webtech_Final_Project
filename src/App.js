@@ -25,6 +25,9 @@ function App() {
       <Switch>
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/adduser" component={AddUser} />
+        <Route exact path="/logout">
+          <Redirect to='/login' />
+        </Route>
         <Route component={Notfound404} />
       </Switch>
 
