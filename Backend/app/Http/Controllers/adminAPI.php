@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 
 class adminAPI extends Controller
 {
+    public function userList()
+    {
+        $user = usersModel::all();
+        return (response()->json([
+            'status' => 200,
+            'users' => $user
+        ]));
+    }
 
     public function insertUser(Request $req)
     {

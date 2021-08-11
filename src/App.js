@@ -11,6 +11,7 @@ import Sidemenu from './admin_components/Layouts/sidemenu';
 import Dashboard from './admin_components/dashbord';
 import AddUser from './admin_components/addUser';
 import Notfound404 from './admin_components/notfound404';
+import UserList from './admin_components/userList';
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
       <Switch>
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/adduser" component={AddUser} />
+        <Route exact path="/userlist" component={UserList} />
         <Route exact path="/logout">
           <Redirect to='/login' />
         </Route>
