@@ -49,10 +49,23 @@ input , select {
     color: white;
   }
   div.content {
-    margin-left: 15%;
+    
+    margin-left: 12%;
     padding: 1px 16px;
-    height: 1000px;
+   
   }
+  div.content .card {
+    margin: 100px 0px 20px 0px;
+
+  }
+ 
+  div.content .card table tr td {
+    font-weight: 500;
+    text-transform: uppercase
+    ;
+  }
+ 
+ 
   
   /* Links on mouse-over */
   .sidebar a:hover:not(.active) {
@@ -64,19 +77,23 @@ input , select {
 
 /* Dashboard */
 .gradient-1{
-    background: linear-gradient(45deg,#314755, #26a0da) !important;
+    background: linear-gradient(45deg,#314755, #26a0da);
+   
     
 }
 .gradient-2{
     background: linear-gradient(45deg,#2193b0, #6dd5ed);
+   
     
 }
 .gradient-3{
     background: linear-gradient(45deg,#cc2b5e, #753a88);
+   
     
 }
 .gradient-4{
     background: linear-gradient(45deg,#9796f0, #fbc7d4);
+   
     
 }
 .card_in_dashboard{
@@ -132,6 +149,7 @@ input , select {
     div.content {
       margin-left: 0;
     }
+   
     .gradient-2{
      margin: 15px 0px 15px 0px;
       
@@ -151,4 +169,14 @@ input , select {
       text-align: center;
       float: none;
     }
+    .content .carddd{
+      margin: 10px 0px 20px 0px !important;
+     
+    }
+    .gradient-4{
+      background: linear-gradient(45deg,#314755, #26a0da) !important;
+      margin-bottom: 15px !important;
+    }
+      
+
   }  
