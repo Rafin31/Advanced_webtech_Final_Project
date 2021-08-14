@@ -20,4 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/signup', "adminAPI@insertUser");
 Route::post('/signin', "adminAPI@loginVarify");
+Route::post('/adduser', "adminAPI@insertUser");
 Route::get('/userlist', "adminAPI@userList");
+Route::get('/edituser/{id}', "adminAPI@completeEdit");
+Route::post('/edituseroparation/{id}', "adminAPI@editingOparetion");
+Route::post('/blockUserOparetion/{id}', "adminAPI@blockUserOparetion");
+Route::post('/unblockOperation/{id}', "adminAPI@unblockOperation");
+Route::post('/destroy/{id}', "adminAPI@destroy");
+Route::post('/pendingUserOparation/{id}', "adminAPI@pendingUserOparation");

@@ -1,11 +1,12 @@
 
 import axios from "axios";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import Sidemenu from "../Layouts/sidemenu"
 
-function AddUser() {
+function EditUser() {
     const history = useHistory();
+    const { id } = useParams();
     const [error, setError] = useState({
         error: []
     })
@@ -13,12 +14,22 @@ function AddUser() {
         user_name: "",
         phone_number: "",
         email: "",
-        password: "",
         address: "",
         user_type: "",
-        confirm_password: "",
     });
+    useEffect(() => {
+        loadEditUser();
+    }, [])
+    const loadEditUser = () => {
+        const result = axios.get(`http://127.0.0.1:8000/api/edituser/${id}`)
+            .then(response => {
+                setData(response.data.users)
+            })
+            .catch(error => {
+                alert("something Went Wrong");
+            })
 
+    }
 
     const onchange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -26,17 +37,16 @@ function AddUser() {
     const submitted = (e) => {
         e.preventDefault();
         // console.log(data);
-        load();
-        console.log(error);
+        Edit();
+        //console.log(error);
 
     }
 
-    const load = () => {
-        console.log("te");
-        const result = axios.post("http://127.0.0.1:8000/api/adduser", JSON.stringify(data), { headers: { "Content-Type": "application/json" } })
+    const Edit = () => {
+        const result = axios.post(`http://127.0.0.1:8000/api/edituseroparation/${id}`, JSON.stringify(data), { headers: { "Content-Type": "application/json" } })
             .then(response => {
                 if (response.data.status === 200) {
-                    alert("User Added Succefully");
+                    alert("User Eddited Succefully");
                     history.push("/userlist")
                 } else {
                     setError({
@@ -69,7 +79,7 @@ function AddUser() {
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <select class="form-control" name="user_type" id="val-skill"
-                                                            name="val-skill" onChange={(e) => onchange(e)} name="user_type" value={data.user_type} >
+                                                            name="val-skill" onChange={(e) => onchange(e)} name="user_type" value={data.user_type} disabled >
                                                             <option >User Type</option>
                                                             <option value="clients">Clients</option>
                                                             <option value="bank_manager">Bank Manager</option>
@@ -115,37 +125,6 @@ function AddUser() {
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="val-password">Password <span
-                                                        class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="password" class="form-control" id="val-password"
-                                                            name="password" placeholder="Choose a safe one.." onChange={(e) => onchange(e)} name="password" value={data.password} />
-                                                        {/* error */}
-                                                        <div className="error alert-danger">
-                                                            <p>{error.error.password}</p>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label"
-                                                        for="val-confirm-password">Confirm Password <span
-                                                            class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="password" class="form-control"
-                                                            id="val-confirm-password" name="con_password"
-                                                            placeholder="..and confirm it!" onChange={(e) => onchange(e)} name="confirm_password" value={data.confirm_password} />
-                                                        {/* error */}
-                                                        <div className="error alert-danger">
-                                                            <p>{error.error.confirm_password}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
                                                         for="val-confirm-password">Address <span
                                                             class="text-danger">*</span>
@@ -180,7 +159,7 @@ function AddUser() {
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <button type="submit"
-                                                            class="btn btn-primary w-100">Add</button>
+                                                            class="btn btn-primary w-100">Edit</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -198,4 +177,4 @@ function AddUser() {
     );
 }
 
-export default AddUser;
+export default EditUser;

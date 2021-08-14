@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 
 import Login from './admin_components/login';
 import Signup from './admin_components/signup';
-import Sidemenu from './admin_components/Layouts/sidemenu';
+import Sidemenu from './Layouts/sidemenu';
 import Dashboard from './admin_components/dashbord';
 import AddUser from './admin_components/addUser';
 import Notfound404 from './admin_components/notfound404';
 import UserList from './admin_components/userList';
+import EditUser from './admin_components/edituser';
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/adduser" component={AddUser} />
         <Route exact path="/userlist" component={UserList} />
+        <Route exact path="/userlist/edit/:id" component={EditUser} />
         <Route exact path="/logout">
           <Redirect to='/login' />
         </Route>
