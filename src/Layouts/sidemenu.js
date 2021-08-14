@@ -8,10 +8,11 @@ const Sidemenu = () => {
                     <NavLink to="/dashboard">Dashboard</NavLink>
                     <NavLink to="/adduser">Add users</NavLink>
                     <NavLink to="/userlist">Users List</NavLink>
-                    <NavLink to="/pendinguser">Pending Users </NavLink>
-                    <NavLink to="/unblockuser">Unblock Users</NavLink>
+                    <NavLink to="/requests">Requests</NavLink>
                     <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/post_notices">Post Notice</NavLink>
                     <NavLink to="/changepassword">Change Password</NavLink>
+
                     <NavLink to="/logout">Logout</NavLink>
                 </div>
             </div>
