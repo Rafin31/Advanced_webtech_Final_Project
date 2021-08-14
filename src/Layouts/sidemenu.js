@@ -12,7 +12,6 @@ const Sidemenu = () => {
                     <NavLink to="/profile">Profile</NavLink>
                     <NavLink to="/post_notices">Post Notice</NavLink>
                     <NavLink to="/changepassword">Change Password</NavLink>
-
                     <NavLink to="/logout">Logout</NavLink>
                 </div>
             </div>

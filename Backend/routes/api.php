@@ -28,3 +28,5 @@ Route::post('/blockUserOparetion/{id}', "adminAPI@blockUserOparetion");
 Route::post('/unblockOperation/{id}', "adminAPI@unblockOperation");
 Route::post('/destroy/{id}', "adminAPI@destroy");
 Route::post('/pendingUserOparation/{id}', "adminAPI@pendingUserOparation");
+Route::get('/clientReq', "adminAPI@clientReq");
+Route::post('/clientReqOperation/{id}', "adminAPI@clientReqOperation");
