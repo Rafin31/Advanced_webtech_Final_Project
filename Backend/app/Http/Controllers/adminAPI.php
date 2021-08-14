@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\loginModel;
+use App\Models\requestsModel;
 use App\Models\usersModel;
 use Illuminate\Http\Request;
 
@@ -308,5 +309,23 @@ class adminAPI extends Controller
                 ]);
             }
         }
+    }
+    public function clientReq()
+    {
+        $request = requestsModel::where('status', 'Pending')->get();
+        return response()->json([
+            'status' => 200,
+            'requests' => $request,
+        ]);
+    }
+
+    public function clientReqOperation($id)
+    {
+        $request = requestsModel::find($id);
+        $request->status = 'Approved';
+        $request->save();
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 }

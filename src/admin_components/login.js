@@ -43,6 +43,7 @@ const Login = () => {
                         })
                     } else {
                         if (response.data.user.user_type === 'admin') {
+                            window.sessionStorage.setItem('status', 'true');
                             history.push('/dashboard');
                         } else if (response.data.user.user_type === 'client') {
                             //code

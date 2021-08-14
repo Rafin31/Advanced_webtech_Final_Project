@@ -13,6 +13,8 @@ import AddUser from './admin_components/addUser';
 import Notfound404 from './admin_components/notfound404';
 import UserList from './admin_components/userList';
 import EditUser from './admin_components/edituser';
+import Request from './admin_components/Request';
+import Profile from './admin_components/profile';
 function App() {
   return (
     <Router>
@@ -29,6 +31,8 @@ function App() {
         <Route exact path="/adduser" component={AddUser} />
         <Route exact path="/userlist" component={UserList} />
         <Route exact path="/userlist/edit/:id" component={EditUser} />
+        <Route exact path="/requests" component={Request} />
+        <Route exact path="/profile" component={Profile} />
         <Route exact path="/logout">
           <Redirect to='/login' />
         </Route>
