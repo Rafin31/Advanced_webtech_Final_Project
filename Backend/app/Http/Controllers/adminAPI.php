@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\loginModel;
+use App\Models\postNotice;
+use App\Models\requestsModel;
 use App\Models\usersModel;
 use Illuminate\Http\Request;
 
@@ -20,6 +22,139 @@ class adminAPI extends Controller
         ]));
     }
 
+    public function completeEdit($id)
+    {
+        $user = usersModel::find($id);
+        return (response()->json([
+            'status' => 200,
+            'users' => $user
+        ]));
+    }
+    public function editingOparetion(Request $req, $id)
+    {
+        $validator = Validator::make($req->all(), [
+            'address'    => ['required', 'min:5', 'max:50'],
+            'user_name' => ['required', 'min:3', 'max:50', 'unique:users'],
+            'email' => ['required', 'email', 'min:8', 'max:30', 'email:rfc'],
+            'phone_number' => ['required', 'min:11', 'max:15',],
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 201,
+                'error' => $validator->errors(),
+            ]);
+        } else {
+            DB::beginTransaction();
+            try {
+
+                $user = usersModel::find($id);
+                $user->user_name = $req->user_name;
+                $user->email = $req->email;
+                $user->address = $req->address;
+                $user->phone_number = $req->phone_number;
+                $user->save();
+
+                $login = loginModel::find($id);
+                $login->user_name = $req->user_name;
+                $login->save();
+                DB::commit();
+
+                return response()->json([
+                    'status' => 200,
+                ]);
+            } catch (\Throwable $th) {
+                DB::rollBack();
+                return response()->json([
+                    'status' => 201,
+                ]);
+                //throw $th;
+            }
+        }
+
+
+
+        //return view('user.completeEdit')->with('users', $user);
+    }
+    public function blockUserOparetion($id)
+    {
+        DB::beginTransaction();
+        try {
+            $user = usersModel::find($id);
+            $user->account_Status = 'Block';
+            $user->save();
+            $login = loginModel::find($id);
+            $login->account_Status = 'Block';
+            $login->save();
+            DB::commit();
+            return response()->json([
+                'status' => 200,
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json([
+                'status' => 201,
+            ]);
+            //throw $th;
+        }
+    }
+    public function unblockOperation($id)
+    {
+        //echo "done";
+        DB::beginTransaction();
+        try {
+            $user = usersModel::find($id);
+            $user->account_Status = 'active';
+            $user->save();
+            $login = loginModel::find($id);
+            $login->account_Status = 'active';
+            $login->save();
+            DB::commit();
+            return response()->json([
+                'status' => 200,
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return response()->json([
+                'status' => 201,
+            ]);
+            //throw $th;
+        }
+    }
+    public function pendingUserOparation($id)
+    {
+        DB::beginTransaction();
+        try {
+            $user = usersModel::find($id);
+            $user->account_Status = 'active';
+            $user->save();
+
+            $login = loginModel::find($id);
+            $login->account_Status = 'active';
+            $login->save();
+            DB::commit();
+            return response()->json([
+                'status' => 200,
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json([
+                'status' => 201,
+            ]);
+
+            //throw $th;
+        }
+
+        //return view('user.pendingUser')->with('user', $user);
+    }
+    public function destroy($id)
+    {
+
+        $user = usersModel::destroy($id);
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
     public function insertUser(Request $req)
     {
         $validator = Validator::make($req->all(), [
@@ -172,6 +307,101 @@ class adminAPI extends Controller
                 return response()->json([
                     'status' => 201,
                     'error' => "Invalid user name and password",
+                ]);
+            }
+        }
+    }
+    public function clientReq()
+    {
+        $request = requestsModel::where('status', 'Pending')->get();
+        return response()->json([
+            'status' => 200,
+            'requests' => $request,
+        ]);
+    }
+
+    public function clientReqOperation($id)
+    {
+        $request = requestsModel::find($id);
+        $request->status = 'Approved';
+        $request->save();
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    public function postNoticesOperation(Request $req, $id)
+    {
+        $validator = Validator::make($req->all(), [
+
+            'subject' => ['required'],
+            'description' => ['required'],
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 201,
+                'error' => $validator->errors(),
+            ]);
+        } else {
+            $post = new postNotice;
+            $post->id = $id;
+            $post->subject = $req->subject;
+            $post->description = $req->description;
+            $CONFIRMATION = $post->save();
+
+            if ($CONFIRMATION) {
+
+                return response()->json([
+                    'status' => 200,
+                ]);
+            } else {
+
+                return response()->json([
+                    'status' => 201,
+                ]);
+            }
+        }
+    }
+    public function changePasswordOperation(Request $req, $id)
+    {
+        $validator = Validator::make($req->all(), [
+            'current_password' => [
+                'required'
+            ],
+            'new_password' => [
+                'required',
+                'min:8',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
+            ],
+            'confirm_password' => ['required', 'same:new_password']
+
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 201,
+                'error' => $validator->errors(),
+            ]);
+        } else {
+            $password = usersModel::find($id)->login;
+
+            if (Hash::check($req->current_password, $password['password'])) {
+                $user = loginModel::find($id);
+                $user->password = bcrypt($req->confirm_password);
+                $user->save();
+
+                return response()->json([
+                    'status' => 200,
+                ]);
+            } else {
+
+                return response()->json([
+                    'status' => 201,
+                    'error' => "Current Password Incorrect"
                 ]);
             }
         }

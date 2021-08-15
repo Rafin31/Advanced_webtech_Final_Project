@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import Sidemenu from "../Layouts/admin_sidemenu";
 import { Link } from 'react-router-dom';
+=======
+import Sidemenu from "../Layouts/sidemenu"
+import { Link, useHistory } from 'react-router-dom';
+>>>>>>> f1499ba57326d211ececaeda0f3dfa3aab916ea5
 
 function UserList() {
     const [data, setData] = useState([]);
+    const history = useHistory();
 
 
     const load = async () => {
@@ -18,15 +24,108 @@ function UserList() {
 
     const checkStatus = (user) => {
         if (user.account_Status === 'pending') {
-            return <td><span class="badge  badge-pill badge-warning">{user.account_Status}</span></td>
+            return (
+                <>
+                    <td><span class="badge  badge-pill badge-warning">{user.account_Status}</span></td>
+                    <td><Link to={`/userlist/edit/${user.id}`} className="btn btn-info" onClick={(event) => event.preventDefault()}>Edit</Link></td>
+                    <td><Link onClick={() => { onApprove(user.id) }} className="btn btn-success"  >Approve</Link></td>
+                    <td><Link onClick={() => { onDelete(user.id) }} className="btn btn-danger" >Delete</Link></td>
+                </>
+            )
+
         } else if (user.account_Status === 'Block') {
-            return <td><span class="badge  badge-pill badge-danger">{user.account_Status}</span></td>
+            return (
+                <>
+                    <td><span class="badge  badge-pill badge-danger">{user.account_Status}</span></td>
+                    <td><Link to={`/userlist/edit/${user.id}`} className="btn btn-info" onClick={(event) => event.preventDefault()} >Edit</Link></td>
+                    <td><Link onClick={() => { onUnblock(user.id) }} className="btn btn-success"  >Unblock</Link></td>
+                    <td><Link onClick={() => { onDelete(user.id) }} className="btn btn-danger" >Delete</Link></td>
+                </>
+            )
         } else {
-            return <td><span class="badge  badge-pill badge-success">{user.account_Status}</span></td>
+            return (
+                <>
+                    <td><span class="badge  badge-pill badge-success">{user.account_Status}</span></td>
+                    <td><Link to={`/userlist/edit/${user.id}`} className="btn btn-info" >Edit</Link></td>
+                    <td><Link onClick={() => { onBlock(user.id) }} className="btn btn-dark" >Block</Link></td>
+                    <td><Link onClick={() => { onDelete(user.id) }} className="btn btn-danger" >Delete</Link></td>
+                </>
+            )
         }
     }
 
+    const onApprove = (id) => {
+        if (window.confirm("Are you sure you want to Approved the user?")) {
 
+            const result = axios.post(`http://127.0.0.1:8000/api/pendingUserOparation/${id}`)
+                .then(response => {
+                    if (response.data.status === 200) {
+                        alert("User Approved Succefully");
+                        window.location.reload()
+                    } else {
+                        alert("Something Went Wrong");
+                    }
+                })
+                .catch(error => {
+                    alert("Something Went Wrong");
+                })
+
+        }
+    }
+    const onDelete = (id) => {
+        if (window.confirm("Are you sure you want to Delete the user?")) {
+
+            const result = axios.post(`http://127.0.0.1:8000/api/destroy/${id}`)
+                .then(response => {
+                    if (response.data.status === 200) {
+                        alert("User Deleted Succefully");
+                        window.location.reload()
+                    } else {
+                        alert("Something Went Wrong");
+                    }
+                })
+                .catch(error => {
+                    alert("Something Went Wrong");
+                })
+
+        }
+    }
+    const onUnblock = (id) => {
+        if (window.confirm("Are you sure you want to Un-Block the user?")) {
+
+            const result = axios.post(`http://127.0.0.1:8000/api/unblockOperation/${id}`)
+                .then(response => {
+                    if (response.data.status === 200) {
+                        alert("User Un-Blocekd Succefully");
+                        window.location.reload()
+                    } else {
+                        alert("Something Went Wrong");
+                    }
+                })
+                .catch(error => {
+                    alert("Something Went Wrong");
+                })
+
+        }
+    }
+    const onBlock = (id) => {
+        if (window.confirm("Are you sure you want to block the user?")) {
+
+            const result = axios.post(`http://127.0.0.1:8000/api/blockUserOparetion/${id}`)
+                .then(response => {
+                    if (response.data.status === 200) {
+                        alert("User Blocekd Succefully");
+                        window.location.reload()
+                    } else {
+                        alert("Something Went Wrong");
+                    }
+                })
+                .catch(error => {
+                    alert("Something Went Wrong");
+                })
+
+        }
+    }
 
 
 
@@ -68,9 +167,7 @@ function UserList() {
                                                             <td>{user.email}</td>
                                                             <td>{user.phone_number}</td>
                                                             {checkStatus(user)}
-                                                            <td><button className="btn btn-info" >Edit</button></td>
-                                                            <td><button className="btn btn-dark" >Block</button></td>
-                                                            <td><button className="btn btn-danger" >Delete</button></td>
+
 
                                                         </tr>
                                                     );
