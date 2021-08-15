@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Sidemenu from "./Layouts/sidemenu";
+import Sidemenu from "../Layouts/admin_sidemenu";
 import { Link } from 'react-router-dom';
 
 function UserList() {

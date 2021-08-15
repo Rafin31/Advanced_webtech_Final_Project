@@ -1,5 +1,5 @@
 
-import Sidemenu from "./Layouts/sidemenu";
+import Sidemenu from "../Layouts/admin_sidemenu";
 
 function AddUser() {
     return (

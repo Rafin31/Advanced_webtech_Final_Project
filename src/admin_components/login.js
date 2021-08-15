@@ -45,7 +45,7 @@ const Login = () => {
                         if (response.data.user.user_type === 'admin') {
                             history.push('/dashboard');
                         } else if (response.data.user.user_type === 'client') {
-                            //code
+                            history.push('/client_dashboard');
                         } else if (response.data.user.user_type === 'bank_maneger') {
                             //code
                         }
