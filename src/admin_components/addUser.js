@@ -1,12 +1,12 @@
 
-<<<<<<< HEAD
-import Sidemenu from "../Layouts/admin_sidemenu";
-=======
+
+
+
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Sidemenu from "../Layouts/sidemenu"
->>>>>>> f1499ba57326d211ececaeda0f3dfa3aab916ea5
+
 
 function AddUser() {
     const history = useHistory();
