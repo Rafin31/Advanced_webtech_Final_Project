@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
+import Sidemenu from "../Layouts/admin_sidemenu";
+import { Link } from 'react-router-dom';
+=======
 import Sidemenu from "../Layouts/sidemenu"
 import { Link, useHistory } from 'react-router-dom';
+>>>>>>> f1499ba57326d211ececaeda0f3dfa3aab916ea5
 
 function UserList() {
     const [data, setData] = useState([]);

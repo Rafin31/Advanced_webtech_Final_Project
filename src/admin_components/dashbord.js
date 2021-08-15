@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+import Sidemenu from "../Layouts/admin_sidemenu";
+=======
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidemenu from "../Layouts/sidemenu"
 import { Redirect, useHistory } from "react-router-dom";
+>>>>>>> f1499ba57326d211ececaeda0f3dfa3aab916ea5
 const Dashboard = () => {
 
     const history = useHistory();

@@ -47,7 +47,7 @@ const Login = () => {
                             window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/dashboard');
                         } else if (response.data.user.user_type === 'client') {
-                            //code
+                            history.push('/client_dashboard');
                         } else if (response.data.user.user_type === 'bank_maneger') {
                             //code
                         }
