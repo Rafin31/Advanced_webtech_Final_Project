@@ -10,7 +10,7 @@ const Sidemenu = () => {
                     <NavLink to="/userlist">Users List</NavLink>
                     <NavLink to="/requests">Requests</NavLink>
                     <NavLink to="/profile">Profile</NavLink>
-                    <NavLink to="/post_notices">Post Notice</NavLink>
+                    <NavLink to="/postnotices">Post Notice</NavLink>
                     <NavLink to="/changepassword">Change Password</NavLink>
                     <NavLink to="/logout">Logout</NavLink>
                 </div>

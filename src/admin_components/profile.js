@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import Sidemenu from '../Layouts/sidemenu';
+import axios from 'axios';
 
 function Profile() {
+    const user = (JSON.parse(window.sessionStorage.getItem('user')));
+    const [data, setdata] = useState([]);
 
-    console.log(window.sessionStorage.getItem('status'))
+    const Edit = () => {
+        const result = axios.get(`http://127.0.0.1:8000/api/edituser/${user.id}`)
+            .then(response => {
+                setdata(response.data.users);
+            })
+
+    }
+    useEffect(() => {
+        Edit();
+    }, [])
+
     return (
+
         <>
             <Sidemenu />
             <div className="content">
 
                 <div class="container-fluid">
 
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-10">
                             <div class="card">
                                 <div class="card-body">
-
                                     <div class="col-12 mt-5 text-center">
-                                        <Link to=""
+                                        <Link to="/editprofile"
                                             class="btn mr-3 btn-danger">
                                             Edit Profile</Link>
-                                        <Link to=""
+                                        <Link to="/changepassword"
                                             class="btn btn-danger w-auto"> Change Password</Link>
                                     </div>
 
@@ -41,7 +55,7 @@ function Profile() {
                                                             <thead>
                                                                 <tr>
 
-                                                                    <th><strong class="text-dark mr-4">User Id</strong></th>
+                                                                    <th><strong class="text-dark mr-4">User Id#</strong></th>
                                                                     <th><strong class="text-dark mr-4">User Name</strong>
                                                                     </th>
                                                                     <th><strong class="text-dark mr-4">Email</strong></th>
@@ -54,13 +68,13 @@ function Profile() {
                                                             <tbody>
 
                                                                 <tr>
-                                                                    <td> </td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td class="color-primary"></td>
-                                                                    <td class="color-primary"></td>
+                                                                    <td>{data.id}</td>
+                                                                    <td>{data.user_name}</td>
+                                                                    <td>{data.email}</td>
+                                                                    <td class="color-primary">{data.phone_number}</td>
+                                                                    <td>{data.address}</td>
                                                                     <td><span
-                                                                        class="badge badge-primary px-2"></span>
+                                                                        class="badge badge-primary px-2">{data.user_type}</span>
                                                                     </td>
                                                                 </tr>
 

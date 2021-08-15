@@ -15,7 +15,13 @@ import UserList from './admin_components/userList';
 import EditUser from './admin_components/edituser';
 import Request from './admin_components/Request';
 import Profile from './admin_components/profile';
+import Postnotices from './admin_components/postnotices';
+import ChangePassword from './admin_components/ChangePassword';
+import Editprofile from './admin_components/Editprofile';
 function App() {
+
+
+
   return (
     <Router>
       <Switch>
@@ -33,7 +39,11 @@ function App() {
         <Route exact path="/userlist/edit/:id" component={EditUser} />
         <Route exact path="/requests" component={Request} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/postnotices" component={Postnotices} />
+        <Route exact path="/changepassword" component={ChangePassword} />
+        <Route exact path="/editprofile" component={Editprofile} />
         <Route exact path="/logout">
+
           <Redirect to='/login' />
         </Route>
         <Route component={Notfound404} />

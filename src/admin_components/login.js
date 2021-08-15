@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
-
+    sessionStorage.clear();
     const history = useHistory();
     const [error, setError] = useState({
         error: [],
@@ -44,6 +44,7 @@ const Login = () => {
                     } else {
                         if (response.data.user.user_type === 'admin') {
                             window.sessionStorage.setItem('status', 'true');
+                            window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/dashboard');
                         } else if (response.data.user.user_type === 'client') {
                             //code
