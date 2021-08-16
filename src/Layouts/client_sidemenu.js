@@ -3,7 +3,7 @@ const Client_Sidemenu = () => {
     return (
         <div className="container">
             <div className="links">
-                <div className="sidebar">
+                <div className="Client_sidebar">
                     <p className='head'>Welcome Client</p>
                     <NavLink to="/Client_dashboard">Dashboard</NavLink>
                     <NavLink to="/Withdraw_money">Withdraw Money</NavLink>
