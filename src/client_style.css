@@ -4,16 +4,8 @@ body{
   input , select {
       margin: 10px 0px 10px 0px;
   }
-  .login-form-bg{
-     height: 100vh !important;
-     margin-top: 8%  !important;
-  }
-  .signinlink{
-      text-decoration: none;
-      text-transform: uppercase;
-      color:green;
-      cursor: pointer;
-  }
+ 
+ 
   
   /* Sidber */
   
@@ -22,18 +14,18 @@ body{
       margin: 0px 25px 0px 0px;
       padding: 0;
       left: 0;
-      width: 200px;
-      background-color: #273c75;
+      width: 300px;
+      background-color: #457fca;
       position: fixed;
       height: 100%;
       overflow: auto;
-      transition: 0.5s all ease-out !important;
+      transition: 0.3 all ease-out !important;
     }
     
     /* Sidebar links */
     .sidebar a {
       display: block;
-      color: white;
+      color:pink;
       font-weight: 400;
       text-align: center;
       padding: 10px;
@@ -44,7 +36,7 @@ body{
     
     /* Active/current link */
     .sidebar a.active {
-      background: linear-gradient(45deg,#70e1f5, #ffd194);
+      background: linear-gradient(45deg,#B24592, #F15F79);
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       color: white;
     }
@@ -59,33 +51,33 @@ body{
     
     /* Links on mouse-over */
     .sidebar a:hover:not(.active) {
-      background: linear-gradient(45deg,#314755, #26a0da);
+      background: linear-gradient(45deg,#5614B0, #DBD65C);
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       color: white;
     }
   
   
   /* Dashboard */
-  .gradient-1{
-      background: linear-gradient(45deg,#314755, #26a0da);
-     
+  .box-1{
+      background: linear-gradient(45deg,#403A3E, #BE5869);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
       
   }
-  .gradient-2{
-      background: linear-gradient(45deg,#2193b0, #6dd5ed);
+  .box-2{
+      background: linear-gradient(45deg,#c2e59c, #6dd5ed);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
      
-      
+
   }
-  .gradient-3{
-      background: linear-gradient(45deg,#cc2b5e, #753a88);
-     
-      
+  .box-3{
+      background: linear-gradient(45deg,#8E0E00,#1F1C18);  
+
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
-  .gradient-4{
-      background: linear-gradient(45deg,#9796f0, #fbc7d4);
-     
-      
-  }
+.box{
+  min-height: 200px !important;
+}
   
   .head{
       font-size: 2rem;
@@ -134,11 +126,11 @@ body{
         margin-left: 0;
       }
      
-      .gradient-2{
+      .box-2{
        margin: 15px 0px 15px 0px;
         
     }
-    .gradient-3{
+    .box-3{
        margin: 15px 0px 15px 0px;
      }
        
@@ -157,7 +149,7 @@ body{
         margin: 10px 0px 20px 0px !important;
        
       }
-      .gradient-4{
+      .box-4{
         background: linear-gradient(45deg,#314755, #26a0da) !important;
         margin-bottom: 15px !important;
       }
