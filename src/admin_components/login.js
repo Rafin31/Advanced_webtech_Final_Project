@@ -45,7 +45,9 @@ const Login = () => {
                             window.sessionStorage.setItem('status', 'true');
                             window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/dashboard');
-                        } else if (response.data.user.user_type === 'client') {
+                        } else if (response.data.user.user_type === 'clients') {
+                            window.sessionStorage.setItem('status', 'true');
+                            window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/client_dashboard');
                         } else if (response.data.user.user_type === 'bank_maneger') {
                             //code
