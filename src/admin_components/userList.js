@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ReactHtmlTableToExcel from "react-html-table-to-excel"
+
 
 
 
@@ -138,9 +140,10 @@ function UserList() {
                         <div className="card">
                             <div className="card-body">
                                 <h4 className="card-title">Client Lists</h4>
-                                <button className="btn btn-success m-2 text-capitalize">Export List</button>
+                                {/* <button className="btn btn-success m-2 text-capitalize" onClick={(e) => onClick(e)} >Export List</button> */}
+                                <ReactHtmlTableToExcel className="btn btn-success m-2 text-capitalize" table="user_table" filename="User List" sheet="User List" buttonText="Export" />
                                 <div className="table-responsive">
-                                    <table className="table table-striped  zero-configuration">
+                                    <table className="table table-striped  zero-configuration" id="user_table">
                                         <thead>
                                             <tr>
                                                 <th>Id #</th>

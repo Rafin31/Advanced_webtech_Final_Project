@@ -32,3 +32,4 @@ Route::get('/clientReq', "adminAPI@clientReq");
 Route::post('/clientReqOperation/{id}', "adminAPI@clientReqOperation");
 Route::post('/postNoticesOperation/{id}', "adminAPI@postNoticesOperation");
 Route::post('/changePasswordOperation/{id}', "adminAPI@changePasswordOperation");
+Route::get('/userList/export', "adminAPI@export");
