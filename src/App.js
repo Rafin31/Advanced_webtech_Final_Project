@@ -58,7 +58,7 @@ function App() {
         </Route>
 
         <Route exact path="/requests">
-          <Protected cmp={request} />
+          <Protected cmp={Request} />
         </Route>
 
         <Route exact path="/profile">
