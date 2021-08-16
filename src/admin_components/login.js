@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
-    sessionStorage.clear();
     const history = useHistory();
     const [error, setError] = useState({
         error: [],

@@ -25,38 +25,60 @@ import Profile from './admin_components/profile';
 import Postnotices from './admin_components/postnotices';
 import ChangePassword from './admin_components/ChangePassword';
 import Editprofile from './admin_components/Editprofile';
+import Protected from './protected';
+import request from 'request';
+import Logout from './logout';
 
 function App() {
-
-
 
   return (
     <Router>
       <Switch>
+        {/* Admin routes */}
+
         <Route exact path="/">
           <Redirect to='/login' />
         </Route>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/dashboard" component={Sidemenu} /> */}
-      </Switch>
-      <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/adduser" component={AddUser} />
-        <Route exact path="/userlist" component={UserList} />
 
+        <Route exact path="/dashboard">
+          <Protected cmp={Dashboard} />
+        </Route>
+        <Route exact path="/adduser">
+          <Protected cmp={AddUser} />
+        </Route>
 
+        <Route exact path="/userlist">
+          <Protected cmp={UserList} />
+        </Route>
 
-        <Route exact path="/userlist/edit/:id" component={EditUser} />
-        <Route exact path="/requests" component={Request} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/postnotices" component={Postnotices} />
-        <Route exact path="/changepassword" component={ChangePassword} />
-        <Route exact path="/editprofile" component={Editprofile} />
+        <Route exact path="/userlist/edit/:id">
+          <Protected cmp={EditUser} />
+        </Route>
+
+        <Route exact path="/requests">
+          <Protected cmp={request} />
+        </Route>
+
+        <Route exact path="/profile">
+          <Protected cmp={Profile} />
+        </Route>
+
+        <Route exact path="/postnotices">
+          <Protected cmp={Postnotices} />
+        </Route>
+
+        <Route exact path="/changepassword">
+          <Protected cmp={ChangePassword} />
+        </Route>
+
+        <Route exact path="/editprofile">
+          <Protected cmp={Editprofile} />
+        </Route>
 
         <Route exact path="/logout">
-
-          <Redirect to='/login' />
+          <Logout cmp={Login} />
         </Route>
         <Route component={Notfound404} />
       </Switch>
