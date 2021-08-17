@@ -28,7 +28,7 @@ function Client_Profile() {
                 <div class="container-fluid">
 
                     <div class="row justify-content-center">
-                        <div class="col-8">
+                        <div class="col-9 ml-5">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="col-12 mt-5 text-center">
@@ -55,11 +55,11 @@ function Client_Profile() {
                                                             <thead>
                                                                 <tr>
 
-                                                                    <th><strong class="text-dark mr-4">User Id#</strong></th>
-                                                                    <th><strong class="text-dark mr-4">User Name</strong>
+                                                                    <th><strong class="text-dark mr-4">User Id</strong></th>
+                                                                    <th><strong class="text-dark mr-4">Name</strong>
                                                                     </th>
                                                                     <th><strong class="text-dark mr-4">Email</strong></th>
-                                                                    <th><strong class="text-dark mr-4">Mobile</strong></th>
+                                                                    <th><strong class="text-dark mr-4">Mobile No</strong></th>
                                                                     <th><strong class="text-dark mr-4">Address</strong></th>
                                                                     <th><strong class="text-dark mr-4">User Type</strong>
                                                                     </th>

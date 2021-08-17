@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
-    sessionStorage.clear();
     const history = useHistory();
     const [error, setError] = useState({
         error: [],
@@ -51,6 +50,8 @@ const Login = () => {
                             window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/client_dashboard');
                         } else if (response.data.user.user_type === 'bank_maneger') {
+                            //code
+                        } else if (response.data.user.user_type === 'money_exchange') {
                             //code
                         }
                     }

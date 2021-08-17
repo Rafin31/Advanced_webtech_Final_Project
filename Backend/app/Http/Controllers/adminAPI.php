@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\loginModel;
 use App\Models\postNotice;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\requestsModel;
 use App\Models\usersModel;
 use Illuminate\Http\Request;
@@ -405,5 +407,13 @@ class adminAPI extends Controller
                 ]);
             }
         }
+    }
+    public function export()
+
+    {
+        return response()->json([
+            'status' => 200,
+            'file' => Excel::download(new UsersExport, 'allUser.xlsx')
+        ]);
     }
 }

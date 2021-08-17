@@ -1,21 +1,10 @@
 
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidemenu from "../Layouts/sidemenu"
 import { Redirect, useHistory } from "react-router-dom";
 
 const Dashboard = () => {
-
-    const history = useHistory();
-    useEffect(() => {
-        if (window.sessionStorage.getItem('status') != 'true') {
-            <Redirect to="/login" />
-            console.log("gg");
-        }
-    }, [])
-
 
     const [data, setData] = useState([]);
     const [request, setrequest] = useState([]);
