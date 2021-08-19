@@ -29,7 +29,7 @@ import Client_dashboard from './Client_component/Client_dashboard';
 import Client_Profile from './Client_component/Client_Profile';
 import Client_EditProfile from './Client_component/Client_EditProfile';
 import Client_changepassword from './Client_component/Client_changepassword';
-import Protected from './protected';
+import Admin_Protected from './Admin_protected';
 import request from 'request';
 import Logout from './logout';
 
@@ -53,38 +53,38 @@ function App() {
       </Switch>
       <Switch>
         <Route exact path="/dashboard">
-          <Protected cmp={Dashboard} />
+          <Admin_Protected cmp={Dashboard} />
         </Route>
         <Route exact path="/adduser">
-          <Protected cmp={AddUser} />
+          <Admin_Protected cmp={AddUser} />
         </Route>
 
         <Route exact path="/userlist">
-          <Protected cmp={UserList} />
+          <Admin_Protected cmp={UserList} />
         </Route>
 
         <Route exact path="/userlist/edit/:id">
-          <Protected cmp={EditUser} />
+          <Admin_Protected cmp={EditUser} />
         </Route>
 
         <Route exact path="/requests">
-          <Protected cmp={Request} />
+          <Admin_Protected cmp={Request} />
         </Route>
 
         <Route exact path="/profile">
-          <Protected cmp={Profile} />
+          <Admin_Protected cmp={Profile} />
         </Route>
 
         <Route exact path="/postnotices">
-          <Protected cmp={Postnotices} />
+          <Admin_Protected cmp={Postnotices} />
         </Route>
 
         <Route exact path="/changepassword">
-          <Protected cmp={ChangePassword} />
+          <Admin_Protected cmp={ChangePassword} />
         </Route>
 
         <Route exact path="/editprofile">
-          <Protected cmp={Editprofile} />
+          <Admin_Protected cmp={Editprofile} />
         </Route>
 
         <Route exact path="/logout">
