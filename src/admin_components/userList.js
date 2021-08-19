@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactHtmlTableToExcel from "react-html-table-to-excel"
-
-
-
-
-
 import Sidemenu from "../Layouts/sidemenu"
 import { Link, useHistory } from 'react-router-dom';
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
-function ChangePassword(props) {
+function ChangePassword() {
     const user = (JSON.parse(window.sessionStorage.getItem('user')));
     const history = useHistory()
     const [error, setError] = useState({
