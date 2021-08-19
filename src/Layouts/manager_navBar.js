@@ -22,13 +22,13 @@ const NavBar = ({status})=>
     <p align="center"> 
     <Link to="/manager_dashboard">  Dashboard </Link>| 
     <Link to="/client/add">  Add Client </Link>| 
-    <Link to="/edituser"> Edit User </Link>|
-    <Link to="/user/list"> List </Link> |
+    <Link to="/client/list"> Client List </Link>|
+    
     <Link to="/employee/add">Add Employee</Link>|
     <Link to="/meeting/add"> Arrange Meeting </Link>|
     <Link to="/report/bug/add"> Report A Bug </Link>|
-    <Link to="/currency"> Currency Info </Link>|
-    <Link to="/client/list">Client List</Link>|
+    <Link to="/currency"> Currency Info </Link>
+    
      </p>
     
       </div>

@@ -61,8 +61,17 @@ const AddClient=()=> {
       axios.post('http://localhost:8000/api/addclient',user)
       .then(response=> 
         {
-          console.log("Succesfully respond")
-          alert("Client Added !");
+            if (response.data.status === 201)
+            {
+                alert("Validation Failed !");
+            }
+            else
+            {
+                console.log("Succesfully respond")
+                alert("Client Added !");
+
+            }
+          
         })
         .catch(
           error=>

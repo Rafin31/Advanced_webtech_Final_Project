@@ -47,32 +47,27 @@ class managerAPI extends Controller
     }
     public function addClient(Request $rq)
     {
-        /*$validator = Validator::make($req->all(), [
-            'address'    => ['required', 'min:5', 'max:50'],
-            'user_name' => ['required', 'min:3', 'max:50', 'unique:users'],
-            'email' => ['required', 'email', 'unique:users', 'min:8', 'max:30', 'email:rfc'],
-            'phone_number' => ['required', 'min:11', 'max:15',],
-            'user_type' => ['required'],
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/[a-z]/',
-                'regex:/[A-Z]/',
-                'regex:/[0-9]/',
-                'regex:/[@$!%*#?&]/',
-            ],
-            'confirm_password' => ['required', 'same:password'],
+        $validator = Validator::make($rq->all(), [
+            'id'    => 'required', 'min:1', 'max:10',
+            'ac_balance' => 'required', 'min:3', 'max:50', 'unique:users',
+            'ac_type' => 'required',
+            'ac_sts' => 'required',
+            'nid' => 'required'
 
-        ]);
-        if ($validator->fails()) {
+            ]
+           
+
+        );
+        if ($validator->fails()) 
+        {
             return response()->json([
                 'status' => 201,
                
             ]);
         }
         else
-        {*/
-            //$client = clientmodel::create($rq->all());
+        {
+           
             $client = new clientmodel();
             $client->id = $rq->id ;
             $client->account_balance = $rq->ac_balance ;
@@ -80,6 +75,7 @@ class managerAPI extends Controller
             $client->account_status= $rq->ac_sts ;
             $client->nid_varification = $rq->nid ;
             $client -> save();
+        }
         
            
     }
