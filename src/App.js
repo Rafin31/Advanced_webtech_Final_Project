@@ -2,6 +2,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import './admin_style.css';
 import './client_style.css';
+import './meo_style.css';
 import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from './admin_components/login';
@@ -40,6 +41,20 @@ import ClientList from './manager_components/clientList';
 import Protected from './protected';
 import request from 'request';
 import Logout from './logout';
+
+import meoDashboard from './meo_components/meodashboard';
+import ViewRequest from './meo_components/viewrequest';
+import AddRequest from './meo_components/addRequest';
+import EditRequest from './meo_components/editrequest';
+import RequestList from './meo_components/requestList';
+import CurrencyConverter from './meo_components/currencyConvert';
+// import noticeClient from './meo_components/clientNotice';
+// import Postclient from './meo_components/Postclient';
+
+
+// import Sidebarmeo from './Layouts/sidebarmeo';
+
+
 
 
 
@@ -112,6 +127,27 @@ function App() {
         <Route exact path="/Client_EditProfile" component={Client_EditProfile} />
         <Route exact path="/Client_changepassword" component={Client_changepassword} />
 
+<<<<<<< HEAD
+
+      {/* Money Exchange Officer */}
+        <Route exact path="/meo_dashboard" component={meoDashboard} />
+        <Route exact path="/addrequest" component={AddRequest} />
+        <Route exact path="/requestlist" component={RequestList} />
+        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
+        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
+        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+
+
+        {/* <Route exact path="/postClient" component={Postclient} />
+        <Route exact path="/contactClient" component={noticeClient} />
+        */}
+
+
+        
+
+
+
+=======
         {/* Manager */}
        
          <Route exact path="/manager_dashboard" component={ManagerDashboard} />
@@ -121,6 +157,7 @@ function App() {
         <Route exact path="/meeting/add" component={AddMeeting} />
         <Route exact path="/currency" component={Currency} />
         <Route exact path="/client/list" component={ClientList} />
+>>>>>>> f450a08006633d16d36a4af237c1ca1d11b03cc2
 
         <Route component={Notfound404} />
       </Switch>
