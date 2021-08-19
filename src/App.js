@@ -30,6 +30,14 @@ import Client_dashboard from './Client_component/Client_dashboard';
 import Client_Profile from './Client_component/Client_Profile';
 import Client_EditProfile from './Client_component/Client_EditProfile';
 import Client_changepassword from './Client_component/Client_changepassword';
+import ManagerDashboard from './manager_components/manager_dashboard';
+import AddClient from './manager_components/addClient';
+import AddEmployee from './manager_components/addEmployee';
+import AddBug from './manager_components/addBugReport';
+import AddMeeting from './manager_components/addMeeting';
+import Currency from './manager_components/currencyInfo';
+import ClientList from './manager_components/clientList';
+
 import Protected from './protected';
 import request from 'request';
 import Logout from './logout';
@@ -119,6 +127,7 @@ function App() {
         <Route exact path="/Client_EditProfile" component={Client_EditProfile} />
         <Route exact path="/Client_changepassword" component={Client_changepassword} />
 
+<<<<<<< HEAD
 
       {/* Money Exchange Officer */}
         <Route exact path="/meo_dashboard" component={meoDashboard} />
@@ -138,6 +147,17 @@ function App() {
 
 
 
+=======
+        {/* Manager */}
+       
+         <Route exact path="/manager_dashboard" component={ManagerDashboard} />
+        <Route exact path="/client/add" component={AddClient} />
+        <Route exact path="/employee/add" component={AddEmployee} />
+        <Route exact path="/report/bug/add" component={AddBug} />
+        <Route exact path="/meeting/add" component={AddMeeting} />
+        <Route exact path="/currency" component={Currency} />
+        <Route exact path="/client/list" component={ClientList} />
+>>>>>>> f450a08006633d16d36a4af237c1ca1d11b03cc2
 
         <Route component={Notfound404} />
       </Switch>
