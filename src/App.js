@@ -112,6 +112,8 @@ function App() {
         <Route exact path="/Client_EditProfile" component={Client_EditProfile} />
         <Route exact path="/Client_changepassword" component={Client_changepassword} />
 
+
+
         {/* Manager */}
        
          <Route exact path="/manager_dashboard" component={ManagerDashboard} />
@@ -122,6 +124,20 @@ function App() {
         <Route exact path="/currency" component={Currency} />
         <Route exact path="/client/list" component={ClientList} />
         <Route exact path="/salarylist" component={SalaryList} />
+
+
+        {/* Money Exchange Officer */}
+        <Route exact path="/meo_dashboard" component={meoDashboard} />
+        <Route exact path="/addrequest" component={AddRequest} />
+        <Route exact path="/requestlist" component={RequestList} />
+        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
+        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
+        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+
+
+        {/* <Route exact path="/postClient" component={Postclient} />
+        <Route exact path="/contactClient" component={noticeClient} />
+        */}
 
         <Route component={Notfound404} />
       </Switch>
