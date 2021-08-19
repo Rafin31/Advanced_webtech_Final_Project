@@ -17,6 +17,8 @@ use App\Models\clientmodel;
 use App\Models\hiredemployeemodel;
 use App\Models\bugreportmodel;
 use App\Models\meetingmodel;
+use App\Models\salarymodel;
+
 
 
 
@@ -167,13 +169,16 @@ public function addMeeting(Request $rq)
       
        $user->save();
 
-       
-       
     }
 
-
-
-
+}
+public function salaryList()
+{
+    $user = salarymodel::all();
+    return (response()->json([
+        'status' => 200 ,
+        'users' => $user
+    ]));
 }
 
     

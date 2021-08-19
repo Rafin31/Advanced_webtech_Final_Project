@@ -27,8 +27,8 @@ const NavBar = ({status})=>
     <Link to="/employee/add">Add Employee</Link>|
     <Link to="/meeting/add"> Arrange Meeting </Link>|
     <Link to="/report/bug/add"> Report A Bug </Link>|
-    <Link to="/currency"> Currency Info </Link>
-    
+    <Link to="/currency"> Currency Info </Link>|
+    <Link to="/salarylist"> Salary List </Link>
      </p>
     
       </div>

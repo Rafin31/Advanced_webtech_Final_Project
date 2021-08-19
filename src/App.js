@@ -36,8 +36,8 @@ import AddBug from './manager_components/addBugReport';
 import AddMeeting from './manager_components/addMeeting';
 import Currency from './manager_components/currencyInfo';
 import ClientList from './manager_components/clientList';
-
-import Protected from './protected';
+import SalaryList from './manager_components/salaryList';
+import Protected from './Protected';
 import request from 'request';
 import Logout from './logout';
 
@@ -121,6 +121,7 @@ function App() {
         <Route exact path="/meeting/add" component={AddMeeting} />
         <Route exact path="/currency" component={Currency} />
         <Route exact path="/client/list" component={ClientList} />
+        <Route exact path="/salarylist" component={SalaryList} />
 
         <Route component={Notfound404} />
       </Switch>

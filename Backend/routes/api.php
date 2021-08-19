@@ -38,4 +38,5 @@ Route::post('/addemployee', "managerAPI@addEmployee");
 Route::post('/addbug', "managerAPI@addBug");
 Route::post('/addmeeting', "managerAPI@addMeeting");
 Route::get('/clientlist', "managerAPI@clientList");
+Route::get('/salarylist', "managerAPI@salaryList");
 
