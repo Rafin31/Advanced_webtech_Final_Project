@@ -37,16 +37,13 @@ Route::get('/userList/export', "adminAPI@export");
 
 
 
-
-
-
-
 Route::post('/addrequest', "meoAPI@insertRequest");
 Route::get('/requestlist', "meoAPI@requestList");
 Route::get('/editrequest/{id}', "meoAPI@completeEdit");
 Route::get('/viewrequest/{id}', "meoAPI@completeView");
 Route::post('/editrequestoparation/{id}', "meoAPI@editingOparetion");
 Route::post('/destroyrequest/{id}', "meoAPI@destroy");
+Route::post('/currencyConvert', "meoAPI@currencyConvert");
 
 
 
