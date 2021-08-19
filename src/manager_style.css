@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.division {
+  align-items: center;
+  background-color:aqua ;
+  margin: 5px;
+  padding: 10px ;
+  
+  border: 2px solid #000;
+  position:static;
+  width: 475px;
+  border: rgb(141, 134, 134);
+  border: 2px;
+  align-items: center;
+  border-color: rgb(226, 62, 62);
+  border-width: 10px;
+  border-radius: 20px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar  {
+  align-items: center;
+  background-color:  rgb(208, 222, 240);
+
+ 
+  margin: 5px;
+  padding: 40px;
+  opacity: .75;
+  position:static;
+  width: 1340px;
+  border: rgb(141, 134, 134);
+  border: 2px;
+  cursor:pointer;
+  align-items: center;
+  border-color: rgb(226, 62, 62);
+  border-width: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.navbar:hover  {
+  
+  cursor:pointer;
+  opacity:1.25;
+  
+}
+.btn  {
+  background-color:  rgb(208, 222, 240);
+
+ 
+  margin: 3px;
+  padding: 10px;
+  opacity: .75;
+  position:static;
+  width: 180px;
+  border: rgb(141, 134, 134);
+  border: 2px;
+  cursor:pointer;
+  display: flex;
+  align-items: center;
+  border-color: rgb(226, 62, 62);
+  border-width: 10px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.btn:hover  {
+  
+  cursor:pointer;
+  opacity:1.75;
+  
+}
+
+.h{
+  align-items: center;
+  background-color:  rgb(164, 196, 236);
+
+ 
+  margin: 5px;
+  padding: 40px;
+  opacity: .75;
+  position:static;
+  width: 800px;
+  border: rgb(141, 134, 134);
+  border: 2px;
+  cursor:pointer;
+  align-items: center;
+  border-color: rgb(226, 62, 62);
+  border-width: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Cambria',
+    monospace;
+}
+.bg {
+  align-items: center;
+  background-color: rgb(109, 85, 218);
+  margin: 5px;
+  
+  border-color: rgb(226, 62, 62);
+  border-width: 10px;
+  border-radius: 20px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

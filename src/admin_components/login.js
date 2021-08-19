@@ -49,7 +49,10 @@ const Login = () => {
                             window.sessionStorage.setItem('status', 'true');
                             window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/client_dashboard');
-                        } else if (response.data.user.user_type === 'bank_maneger') {
+                        } else if (response.data.user.user_type === 'bank_manager') {
+                            window.sessionStorage.setItem('status', 'true');
+                            window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
+                            history.push('/manager_dashboard');
                             //code
                         }
                     }
