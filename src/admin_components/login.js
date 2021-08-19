@@ -54,10 +54,7 @@ const Login = () => {
                             window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
                             history.push('/manager_dashboard');
                             //code
-                        } else if (response.data.user.user_type === 'money_exchange') {
-                            //code
-                        }
-
+                        } 
                             else if (response.data.user.user_type === 'money_exchange_officer') {
                              window.sessionStorage.setItem('status', 'true');
                              window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
