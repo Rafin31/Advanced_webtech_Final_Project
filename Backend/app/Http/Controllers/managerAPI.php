@@ -34,131 +34,9 @@ class managerAPI extends Controller
         ]));
     }
 
-    public function completeEdit($id)
-    {
-        $user = usersModel::find($id);
-        return (response()->json([
-            'status' => 200,
-            'users' => $user
-        ]));
-    }
-    public function editingOparetion(Request $req, $id)
-    {
-        $validator = Validator::make($req->all(), [
-            'address'    => ['required', 'min:5', 'max:50'],
-            'user_name' => ['required', 'min:3', 'max:50', 'unique:users'],
-            'email' => ['required', 'email', 'min:8', 'max:30', 'email:rfc'],
-            'phone_number' => ['required', 'min:11', 'max:15',],
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 201,
-                'error' => $validator->errors(),
-            ]);
-        } else {
-            DB::beginTransaction();
-            try {
-
-                $user = usersModel::find($id);
-                $user->user_name = $req->user_name;
-                $user->email = $req->email;
-                $user->address = $req->address;
-                $user->phone_number = $req->phone_number;
-                $user->save();
-
-                $login = loginModel::find($id);
-                $login->user_name = $req->user_name;
-                $login->save();
-                DB::commit();
-
-                return response()->json([
-                    'status' => 200,
-                ]);
-            } catch (\Throwable $th) {
-                DB::rollBack();
-                return response()->json([
-                    'status' => 201,
-                ]);
-                //throw $th;
-            }
-        }
-
-
-
-        //return view('user.completeEdit')->with('users', $user);
-    }
-    public function blockUserOparetion($id)
-    {
-        DB::beginTransaction();
-        try {
-            $user = usersModel::find($id);
-            $user->account_Status = 'Block';
-            $user->save();
-            $login = loginModel::find($id);
-            $login->account_Status = 'Block';
-            $login->save();
-            DB::commit();
-            return response()->json([
-                'status' => 200,
-            ]);
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            return response()->json([
-                'status' => 201,
-            ]);
-            //throw $th;
-        }
-    }
-    public function unblockOperation($id)
-    {
-        //echo "done";
-        DB::beginTransaction();
-        try {
-            $user = usersModel::find($id);
-            $user->account_Status = 'active';
-            $user->save();
-            $login = loginModel::find($id);
-            $login->account_Status = 'active';
-            $login->save();
-            DB::commit();
-            return response()->json([
-                'status' => 200,
-            ]);
-        } catch (\Throwable $th) {
-            DB::rollBack();
-
-            return response()->json([
-                'status' => 201,
-            ]);
-            //throw $th;
-        }
-    }
-    public function pendingUserOparation($id)
-    {
-        DB::beginTransaction();
-        try {
-            $user = usersModel::find($id);
-            $user->account_Status = 'active';
-            $user->save();
-
-            $login = loginModel::find($id);
-            $login->account_Status = 'active';
-            $login->save();
-            DB::commit();
-            return response()->json([
-                'status' => 200,
-            ]);
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            return response()->json([
-                'status' => 201,
-            ]);
-
-            //throw $th;
-        }
-
-        //return view('user.pendingUser')->with('user', $user);
-    }
+    
+    
+    
     public function destroy($id)
     {
 
@@ -210,7 +88,7 @@ class managerAPI extends Controller
     {
         $user = clientmodel::all();
         return (response()->json([
-            'status' => 200,
+            'status' => 200 ,
             'users' => $user
         ]));
     }

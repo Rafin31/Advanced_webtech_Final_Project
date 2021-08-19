@@ -5,45 +5,57 @@ import { Link, useHistory } from 'react-router-dom';
 import NavBar from '../Layouts/manager_navBar';
 
 function ClientList() {
-    const [list, setLists] = useState([]);
-    const history = useHistory();
+    const[list,setLists]=useState([]);
+    const response=axios.get("http://localhost:8000/api/clientlist")
+    .then(response=>{
+       
+        setLists(response.data.users);
 
+    })
+    .catch(error=>{
 
-    const load = async () => {
-        const res = await axios.get("http://127.0.0.1:8000/api/clientlist");
-        setLists(res.data.users);
+        console.log(error);
+
     }
-    useEffect(() => {
-        load();
-    }, []);
-
-                    
-
-                    list.map((user) => {
+    )
+  
+   return (
+    <>
+ <NavBar status="Client's List"> </NavBar>
+                                <p align="center"><table border="8" height="500" width="500" >
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Account Balance</th>
+                                                <th>Account type</th>
+                                                <th>NID Verification No.</th>
+                                                <th>Acount Status</th>
+                                            </tr>
+                                        </thead>
+{
+                                                list.map((user) => {
                                                     return (
-                                                        
-                                                        <>
-                                                        <NavBar status="Client's List" /> 
-                                                        <table>
+                                                       
+                                                      
+                                                         
                                                             
-                                                            <tr>
+                                                        <tr>
                                                             <td>{user.id}</td>
-                                                            <td>{user.user_name}</td>
-                                                            <td>{user.address}</td>
-                                                            <td>{user.email}</td>
-                                                            <td>{user.phone_number}</td>
+                                                            <td>{user.account_balance}</td>
+                                                            <td>{user.account_type}</td>
+                                                            <td>{user.nid_varification}</td>
+                                                            <td>{user.account_status}</td>
+                                                            
 
                                                         </tr>
-                                                        </table>
+                                                       
                                                     );
 
-                                                )
-                    
-                </>
-            )
-            }
-        
-    );
-}
+                                                })
+                                            }
+ </table> </p>
+</>
 
+); 
+}
 export default ClientList;
