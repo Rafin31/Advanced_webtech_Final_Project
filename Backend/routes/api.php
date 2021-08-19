@@ -33,3 +33,26 @@ Route::post('/clientReqOperation/{id}', "adminAPI@clientReqOperation");
 Route::post('/postNoticesOperation/{id}', "adminAPI@postNoticesOperation");
 Route::post('/changePasswordOperation/{id}', "adminAPI@changePasswordOperation");
 Route::get('/userList/export', "adminAPI@export");
+
+
+
+
+
+// Route::post('/addrequest', "meoAPI@insertRequest");
+// Route::get('/requestlist', "meoAPI@requestList");
+// Route::get('/editrequest/{id}', "meoAPI@completeEdit");
+
+// Route::get('/viewrequest/{id}', "meoAPI@completeView");
+// Route::post('/editrequestoparation/{id}', "meoAPI@editingOparetion");
+// Route::post('/delete/{id}', "meoAPI@delete");
+
+
+Route::post('/addrequest', "meoAPI@insertRequest");
+Route::get('/requestlist', "meoAPI@requestList");
+Route::get('/editrequest/{id}', "meoAPI@completeEdit");
+Route::get('/viewrequest/{id}', "meoAPI@completeView");
+Route::post('/editrequestoparation/{id}', "meoAPI@editingOparetion");
+Route::post('/destroyrequest/{id}', "meoAPI@destroy");
+Route::get('/requestList/export', "meoAPI@export");
+
+
