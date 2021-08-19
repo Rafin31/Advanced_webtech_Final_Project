@@ -3,7 +3,7 @@ import Client_Sidemenu from '../Layouts/client_sidemenu';
 import axios from 'axios';
 import ReactHtmlTableToExcel from "react-html-table-to-excel"
 
-function Transaction(props) {
+function Transaction() {
     const user = (JSON.parse(window.sessionStorage.getItem('user')));
     const [data, setData] = useState([])
 
@@ -13,7 +13,8 @@ function Transaction(props) {
 
     }
     useEffect(() => {
-        getTransationData();
+        if (window.sessionStorage.getItem('status') === 'true')
+            getTransationData();
 
     }, [])
     // console.log(data);

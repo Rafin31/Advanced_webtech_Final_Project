@@ -20,7 +20,8 @@ function Client_EditProfile() {
         user_type: "",
     });
     useEffect(() => {
-        loadEditUser();
+        if (window.sessionStorage.getItem('status') === 'true')
+            loadEditUser();
     }, [])
     const loadEditUser = () => {
         const result = axios.get(`http://127.0.0.1:8000/api/edituser/${user.id}`)

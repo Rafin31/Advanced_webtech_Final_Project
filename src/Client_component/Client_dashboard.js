@@ -3,12 +3,13 @@ import Client_Sidemenu from '../Layouts/client_sidemenu';
 import axios from 'axios';
 
 function Client_dashboard() {
-    const user = (JSON.parse(window.sessionStorage.getItem('user')));
+
     const [client, setClient] = useState([])
     const [transaction, setTransaction] = useState([])
     const [notice, setNotice] = useState([])
 
     const getClientTable = async () => {
+        const user = (JSON.parse(window.sessionStorage.getItem('user')));
         const res = await axios.get(`http://127.0.0.1:8000/api/index/${user.id}`);
         setClient(res.data.users);
         setTransaction(res.data.transaction);
@@ -16,15 +17,9 @@ function Client_dashboard() {
     }
 
     useEffect(() => {
-        getClientTable();
+        if (window.sessionStorage.getItem('status') === 'true')
+            getClientTable();
     }, [])
-
-    console.log(client.account_balance)
-    console.log(transaction.debit)
-    console.log(notice.description)
-
-
-
 
     return (
         <>

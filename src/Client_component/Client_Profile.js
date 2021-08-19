@@ -16,7 +16,8 @@ function Client_Profile() {
 
     }
     useEffect(() => {
-        Edit();
+        if (window.sessionStorage.getItem('status') === 'true')
+            Edit();
     }, [])
 
     return (
