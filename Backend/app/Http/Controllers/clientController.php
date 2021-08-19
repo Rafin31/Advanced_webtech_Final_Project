@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\contact;
 use App\Models\loginModel;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\withdrw;
 use App\Models\usersModel;
@@ -554,8 +555,6 @@ class clientController extends Controller
                     $recharge->save();
 
                     $client_table = clientModel::find(session('user_id'));
-                    //echo  $currentval ;
-                    // $client_table->id =session('user_id');
                     $client_table->account_balance = $currentval;
                     $client_table->save();
                     DB::commit();
@@ -592,13 +591,10 @@ class clientController extends Controller
     public function Send_MoneyDone(sendMoney $req)
     {
         $user = usersModel::find(session('user_id'))->login;
-        //echo $user;
+
         $currentval = usersModel::find(session('user_id'))->client;
 
-        //echo $currentval;
-        //  echo $req->password;
-        //  echo $req->password;
-        //echo $user['password'];
+
 
         if (Hash::check($req->password,  $user['password'])) {
 
@@ -611,8 +607,7 @@ class clientController extends Controller
             } else {
                 try {
                     $currentval = $currentval['account_balance'] - $req->amount;
-                    //echo $currentval;
-                    //echo session('user_id');
+
 
                     $sendmoney = new transactionModel;
                     $sendmoney->id = session('user_id');
@@ -627,8 +622,7 @@ class clientController extends Controller
                     $sendmoney->save();
 
                     $client_table = clientModel::find(session('user_id'));
-                    //echo  $currentval ;
-                    // $client_table->id =session('user_id');
+
                     $client_table->account_balance = $currentval;
                     $client_table->save();
                     DB::commit();
@@ -639,7 +633,6 @@ class clientController extends Controller
                     throw $th;
                 }
             }
-            //return view("Client.Withdraw");
         } else {
             echo "password didn't match";
         }

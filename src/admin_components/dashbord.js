@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidemenu from "../Layouts/sidemenu"
 import { Redirect, useHistory } from "react-router-dom";
+
 const Dashboard = () => {
 
-    const history = useHistory();
     const [data, setData] = useState([]);
     const [request, setrequest] = useState([]);
 

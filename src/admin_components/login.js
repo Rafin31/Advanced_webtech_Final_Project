@@ -51,6 +51,8 @@ const Login = () => {
                             history.push('/client_dashboard');
                         } else if (response.data.user.user_type === 'bank_maneger') {
                             //code
+                        } else if (response.data.user.user_type === 'money_exchange') {
+                            //code
                         }
                     }
 

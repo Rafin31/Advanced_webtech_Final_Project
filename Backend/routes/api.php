@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// Admin
 Route::post('/signup', "adminAPI@insertUser");
 Route::post('/signin', "adminAPI@loginVarify");
 Route::post('/adduser', "adminAPI@insertUser");
@@ -33,3 +33,15 @@ Route::post('/clientReqOperation/{id}', "adminAPI@clientReqOperation");
 Route::post('/postNoticesOperation/{id}', "adminAPI@postNoticesOperation");
 Route::post('/changePasswordOperation/{id}', "adminAPI@changePasswordOperation");
 Route::get('/userList/export', "adminAPI@export");
+
+// Client
+Route::post('/Send_MoneyDone/{id}', "client_api@Send_MoneyDone");
+Route::post('/WithdrawDone/{id}', "client_api@WithdrawDone");
+Route::post('/PayingbillsDone/{id}', "client_api@PayingbillsDone");
+Route::post('/Recharge_moneydone/{id}', "client_api@Recharge_moneydone");
+Route::post('/Applydone/{id}', "client_api@Applydone");
+Route::post('/Exchange_Currencydone/{id}', "client_api@Exchange_Currencydone");
+Route::post('/Contactdone/{id}', "client_api@Contactdone");
+Route::post('/Client_changepassword/{id}', "client_api@Client_changepassword");
+Route::get('/transaction/{id}', "client_api@transaction");
+Route::get('/index/{id}', "client_api@index");

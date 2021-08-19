@@ -6,7 +6,6 @@ import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from './admin_components/login';
 import Signup from './admin_components/signup';
-import Sidemenu from './Layouts/sidemenu';
 import Dashboard from './admin_components/dashbord';
 import AddUser from './admin_components/addUser';
 import Notfound404 from './admin_components/notfound404';
@@ -32,12 +31,14 @@ import Client_changepassword from './Client_component/Client_changepassword';
 import Admin_Protected from './Admin_protected';
 import request from 'request';
 import Logout from './logout';
+import Protected from './Protected';
 
 
 
 
 
 function App() {
+
 
   return (
     <Router>
@@ -49,9 +50,16 @@ function App() {
         </Route>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+
+      </Switch>
+
+      <Switch>
+
+
         {/* <Route exact path="/dashboard" component={Sidemenu} /> */}
       </Switch>
       <Switch>
+
         <Route exact path="/dashboard">
           <Admin_Protected cmp={Dashboard} />
         </Route>
@@ -69,6 +77,7 @@ function App() {
 
         <Route exact path="/requests">
           <Admin_Protected cmp={Request} />
+
         </Route>
 
         <Route exact path="/profile">
@@ -91,22 +100,27 @@ function App() {
           <Logout cmp={Login} />
         </Route>
         {/* Client  */}
-        <Route exact path="/Client_dashboard" component={Client_dashboard} />
-        <Route exact path="/Withdraw_money" component={Withdraw_money} />
-        <Route exact path="/Send_Money" component={Send_Money} />
-        <Route exact path="/Exchange_Currency" component={Exchange_Currency} />
-        <Route exact path="/Apply" component={Apply} />
-        <Route exact path="/Paying_Bills" component={Paying_Bills} />
-        <Route exact path="/Recharge_no" component={Recharge_no} />
-        <Route exact path="/Contact" component={Contact} />
-        <Route exact path="/Transaction" component={Transaction} />
-        <Route exact path="/Client_Profile" component={Client_Profile} />
-        <Route exact path="/Client_EditProfile" component={Client_EditProfile} />
-        <Route exact path="/Client_changepassword" component={Client_changepassword} />
-        <Route component={Notfound404} />
-      </Switch>
 
-    </Router>
+        <Route exact path="/Client_dashboard">
+          <Protected component={Client_dashboard} />
+        </Route>
+        <Route exact path="/Withdraw_money">
+          <Protected component={Withdraw_money} />
+        </Route>
+        <Route exact path="/Send_Money"> <Protected component={Send_Money} /></Route>
+        <Route exact path="/Exchange_Currency"> <Protected component={Exchange_Currency} /></Route>
+        <Route exact path="/Apply"> <Protected component={Apply} /></Route>
+        <Route exact path="/Paying_Bills"> <Protected component={Paying_Bills} /></Route>
+        <Route exact path="/Recharge_no"> <Protected component={Recharge_no} /></Route >
+        <Route exact path="/Contact"> <Protected component={Contact} /></Route >
+        <Route exact path="/Transaction"> <Protected component={Transaction} /></Route >
+        <Route exact path="/Client_Profile"> <Protected component={Client_Profile} /></Route >
+        <Route exact path="/Client_EditProfile"> <Protected component={Client_EditProfile} /></Route >
+        <Route exact path="/Client_changepassword"> <Protected component={Client_changepassword} /></Route >
+        <Route component={Notfound404} />
+      </Switch >
+
+    </Router >
 
   );
 }

@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Client_Sidemenu from '../Layouts/client_sidemenu';
+import axios from 'axios';
 
 function Client_dashboard() {
+
+    const [client, setClient] = useState([])
+    const [transaction, setTransaction] = useState([])
+    const [notice, setNotice] = useState([])
+
+    const getClientTable = async () => {
+        const user = (JSON.parse(window.sessionStorage.getItem('user')));
+        const res = await axios.get(`http://127.0.0.1:8000/api/index/${user.id}`);
+        setClient(res.data.users);
+        setTransaction(res.data.transaction);
+        setNotice(res.data.notice);
+    }
+
+    useEffect(() => {
+        if (window.sessionStorage.getItem('status') === 'true')
+            getClientTable();
+    }, [])
+
     return (
         <>
             <Client_Sidemenu />
@@ -14,7 +33,7 @@ function Client_dashboard() {
                                     <div class=" card_in_dashboard card-body">
                                         <h3 class="card-title text-white">Balance</h3>
                                         <div class="d-inline-block">
-                                            <h2 class="text-white"></h2>
+                                            <h2 class="text-white">{client.account_balance}</h2>
                                             <p class="text-white mb-0"></p>
                                         </div>
                                     </div>
@@ -25,7 +44,7 @@ function Client_dashboard() {
                                     <div class=" card_in_dashboard card-body">
                                         <h3 class="card-title text-white">Previous Withdraw </h3>
                                         <div class="d-inline-block">
-                                            <h2 class="text-white"></h2>
+                                            <h2 class="text-white">{transaction.debit}</h2>
                                             <p class="text-white mb-0"></p>
                                         </div>
                                     </div>
@@ -36,7 +55,7 @@ function Client_dashboard() {
                                     <div class=" card_in_dashboard card-body">
                                         <h3 class="card-title text-white">Nid Varification</h3>
                                         <div class="d-inline-block">
-                                            <h2 class="text-white"></h2>
+                                            <h2 class="text-white">{client.nid_varification}</h2>
                                             <p class="text-white mb-0"></p>
                                         </div>
                                     </div>
@@ -44,6 +63,22 @@ function Client_dashboard() {
                             </div>
                         </div>
 
+
+                    </div>
+                    <div className="row justify-content-center">
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-title info info-success">
+                                        <h4>Notice</h4>
+                                        <h6>{notice.subject}</h6>
+                                        <p>{notice.description}</p>
+                                        <p>{notice.post_date}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div >
