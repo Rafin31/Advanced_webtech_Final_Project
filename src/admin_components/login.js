@@ -55,6 +55,7 @@ const Login = () => {
                             history.push('/manager_dashboard');
                             //code
                         } 
+                        //   Money_exchange_officer
                             else if (response.data.user.user_type === 'money_exchange_officer') {
                              window.sessionStorage.setItem('status', 'true');
                              window.sessionStorage.setItem('user', JSON.stringify(response.data.user));
