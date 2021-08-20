@@ -2,6 +2,7 @@
 //import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import './admin_style.css';
 import './client_style.css';
+import './meo_style.css';
 import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from './admin_components/login';
@@ -37,15 +38,29 @@ import AddMeeting from './manager_components/addMeeting';
 import Currency from './manager_components/currencyInfo';
 import ClientList from './manager_components/clientList';
 import SalaryList from './manager_components/salaryList';
+ manager_module
 import ReportingList from './manager_components/reportingTimeList';
 import TransList from './manager_components/transactionsList';
 import PDF from './manager_components/pdfReport';
 import RequestList from './manager_components/requestList';
 import MeetingList from './manager_components/meetingList';
+
+import meoDashboard from './meo_components/meodashboard';
+import ViewRequest from './meo_components/viewrequest';
+import AddRequest from './meo_components/addRequest';
+import EditRequest from './meo_components/editrequest';
+import RequestList from './meo_components/requestList';
+import CurrencyConverter from './meo_components/currencyConvert';
+import ReviewList from './meo_components/reviewList';
+import ViewReview from './meo_components/viewreview';
+import AddReview from './meo_components/addReview';
+import EditReview from './meo_components/editreview';
+import ProfileMeo from './meo_components/meo_profile';
+import PostnoticesMeo from './meo_components/Post';
+ main
 import Protected from './Protected';
 import request from 'request';
 import Logout from './logout';
-
 
 
 
@@ -136,12 +151,30 @@ function App() {
         <Route exact path="/meeting/list" component={MeetingList} />
 
 
+ manager_module
       
 
 
         {/* <Route exact path="/postClient" component={Postclient} />
         <Route exact path="/contactClient" component={noticeClient} />
         */}
+
+        {/* Money Exchange Officer */}
+        <Route exact path="/meo_dashboard" component={meoDashboard} />
+        <Route exact path="/addrequest" component={AddRequest} />
+        <Route exact path="/requestlist" component={RequestList} />
+        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
+        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
+        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+        <Route exact path="/reviewlist" component={ReviewList} />
+        <Route exact path="/addreview" component={AddReview} />
+        <Route exact path="/reviewlist/edit/:id" component={EditReview} />
+        <Route exact path="/reviewlist/view/:id" component={ViewReview} />
+        <Route exact path="/meo_profile" component={ProfileMeo} />
+        <Route exact path="/postClient" component={PostnoticesMeo} />
+//         <Route exact path="/contactClient" component={noticeClient} />
+//        }
+ main
 
         <Route component={Notfound404} />
       </Switch>
