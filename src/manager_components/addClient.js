@@ -25,29 +25,12 @@ const AddClient=()=> {
     }
     const submitted = (e) => {
         e.preventDefault();
-        // console.log(data);
-      
-
+    
 
     }
 
-    /*const load = () => {
-        const result = axios.post("http://127.0.0.1:8000/api/addclient", JSON.stringify(data), { headers: { "Content-Type": "application/json" } })
-            .then(response => {
-                if (response.data.status === 200) {
-                    alert("Client Added Succefully !!!");
-                    history.push("/userlist")
-                } else {
-                    setError({
-                        error: response.data.error
-                    })
-                }
-            })
-            .catch(error => {
-                alert(error);
-            })
-
-    }*/
+    
+    
 
     return (
       <>

@@ -1,5 +1,5 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
+//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import './admin_style.css';
 import './client_style.css';
 import { Redirect } from 'react-router';
@@ -37,6 +37,11 @@ import AddMeeting from './manager_components/addMeeting';
 import Currency from './manager_components/currencyInfo';
 import ClientList from './manager_components/clientList';
 import SalaryList from './manager_components/salaryList';
+import ReportingList from './manager_components/reportingTimeList';
+import TransList from './manager_components/transactionsList';
+import PDF from './manager_components/pdfReport';
+import RequestList from './manager_components/requestList';
+import MeetingList from './manager_components/meetingList';
 import Protected from './Protected';
 import request from 'request';
 import Logout from './logout';
@@ -124,15 +129,14 @@ function App() {
         <Route exact path="/currency" component={Currency} />
         <Route exact path="/client/list" component={ClientList} />
         <Route exact path="/salarylist" component={SalaryList} />
-
-
-        {/* Money Exchange Officer */}
-        <Route exact path="/meo_dashboard" component={meoDashboard} />
-        <Route exact path="/addrequest" component={AddRequest} />
+        <Route exact path="/reportinglist" component={ReportingList} />
+        <Route exact path="/translist" component={TransList} />
+        <Route exact path="/pdf" component={PDF} />
         <Route exact path="/requestlist" component={RequestList} />
-        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
-        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
-        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+        <Route exact path="/meeting/list" component={MeetingList} />
+
+
+      
 
 
         {/* <Route exact path="/postClient" component={Postclient} />
