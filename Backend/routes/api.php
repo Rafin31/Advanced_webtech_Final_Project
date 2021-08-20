@@ -39,10 +39,12 @@ Route::post('/addbug', "managerAPI@addBug");
 Route::post('/addmeeting', "managerAPI@addMeeting");
 Route::get('/clientlist', "managerAPI@clientList");
 Route::get('/salarylist', "managerAPI@salaryList");
+
 Route::post('/addrequest', "meoAPI@insertRequest");
 Route::get('/requestlist', "meoAPI@requestList");
 Route::get('/editrequest/{id}', "meoAPI@completeEdit");
 Route::get('/viewrequest/{id}', "meoAPI@completeView");
+Route::get('/currencyConvert/currency', "meoAPI@currency");
 Route::post('/editrequestoparation/{id}', "meoAPI@editingOparetion");
 Route::post('/destroyrequest/{id}', "meoAPI@destroy");
 Route::post('/addreview', "meoAPI@insertReview");
@@ -53,5 +55,5 @@ Route::get('/viewreview/{id}', "meoAPI@completeReview");
 Route::post('/editreviewoparation/{id}', "meoAPI@editingOparetionReview");
 Route::post('/destroyreview/{id}', "meoAPI@destroyreview");
 Route::get('/edituser/{id}', "meoAPI@completeEditMeo");
-Route::get('/currencyConvert/currency', "meoAPI@currency");
+
 
