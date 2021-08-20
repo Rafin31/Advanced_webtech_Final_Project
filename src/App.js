@@ -38,7 +38,6 @@ import AddMeeting from './manager_components/addMeeting';
 import Currency from './manager_components/currencyInfo';
 import ClientList from './manager_components/clientList';
 import SalaryList from './manager_components/salaryList';
-
 import meoDashboard from './meo_components/meodashboard';
 import ViewRequest from './meo_components/viewrequest';
 import AddRequest from './meo_components/addRequest';
