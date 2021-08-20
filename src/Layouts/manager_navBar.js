@@ -26,9 +26,17 @@ const NavBar = ({status})=>
     
     <Link to="/employee/add">Add Employee</Link>|
     <Link to="/meeting/add"> Arrange Meeting </Link>|
+    <Link to="/meeting/list"> Meeting List</Link>|
+
     <Link to="/report/bug/add"> Report A Bug </Link>|
     <Link to="/currency"> Currency Info </Link>|
-    <Link to="/salarylist"> Salary List </Link>
+    <Link to="/salarylist"> Salary List </Link>|
+    <Link to="/reportinglist"> Reporting List </Link>|
+    <Link to="/translist"> Transactions </Link>|
+    <Link to="/requestlist"> Requests  </Link>|
+
+    <Link to="/">Log Out</Link>
+
      </p>
     
       </div>

@@ -18,6 +18,11 @@ use App\Models\hiredemployeemodel;
 use App\Models\bugreportmodel;
 use App\Models\meetingmodel;
 use App\Models\salarymodel;
+use App\Models\reportingtimemodel;
+use App\Models\transmodel;
+use App\Models\financialmodel;
+use App\Models\requesttomanagermodel;
+
 
 
 
@@ -180,6 +185,70 @@ public function salaryList()
         'users' => $user
     ]));
 }
+public function reportingTimeList()
+{
+    $user = reportingtimemodel::all();
+    return (response()->json([
+        'status' => 200 ,
+        'users' => $user
+    ]));
+}
+
+public function transList()
+{
+    $user = transmodel::all();
+    return (response()->json([
+        'status' => 200 ,
+        'users' => $user
+    ]));
+}
+
+public function financials()
+{
+    $user = financialmodel::all();
+    return (response()->json([
+        'status' => 200 ,
+        'users' => $user
+    ]));
+}
+public function requests()
+{
+    $user = requesttomanagermodel::all();
+    return (response()->json([
+        'status' => 200 ,
+        'users' => $user
+    ]));
+}
+public function confirmApplication($id)
+{
+   /* $user = requesttomanagermodel::destroy($id);
+    return response()->json([
+        'status' => 200,
+    ]);*/
+        
+      $user = requesttomanagermodel::where('id',$id) 
+    ->first();
+    $user->status='completed';
+
+    $user->save();
+    return (response()->json([
+        'status' => 200 
+       
+    ]));
+}
+
+public function meetingList()
+    {
+
+            $user =   meetingmodel::all();
+ 
+ 
+            return (response()->json([
+                'status' => 200 ,
+                'users' => $user
+            ]));
+    }
 
     
+
 }

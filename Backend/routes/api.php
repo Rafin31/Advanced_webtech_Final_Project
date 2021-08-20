@@ -39,6 +39,14 @@ Route::post('/addbug', "managerAPI@addBug");
 Route::post('/addmeeting', "managerAPI@addMeeting");
 Route::get('/clientlist', "managerAPI@clientList");
 Route::get('/salarylist', "managerAPI@salaryList");
+Route::get('/reportingtime', "managerAPI@reportingTimeList");
+Route::get('/transactions', "managerAPI@transList");
+Route::get('/financials', "managerAPI@financials");
+Route::get('/requests', "managerAPI@requests");
+Route::get('/acceptreq/{id}', "managerAPI@confirmApplication");
+Route::get('/meetings', "managerAPI@meetingList");
+
+
 
 Route::post('/addrequest', "meoAPI@insertRequest");
 Route::get('/requestlist', "meoAPI@requestList");

@@ -1,27 +1,22 @@
 {
-  "name": "my-app",
+  "name": "react-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@popperjs/core": "^2.9.3",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
+    "json-server": "^0.16.3",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.0.0-beta.5",
     "react-dom": "^17.0.2",
-    "react-export-excel": "^0.5.3",
     "react-html-table-to-excel": "^2.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
     "react-to-pdf": "0.0.14",
-=======
     "request": "^2.88.2",
->>>>>>> f450a08006633d16d36a4af237c1ca1d11b03cc2
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,19 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "<p>Creating the frontend with React Js for an exsisting E-Banking project which was developed with Laravel. Using laravel api for the backend of the project.<p/>",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rafin31/Advanced_webtech_Final_Project.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rafin31/Advanced_webtech_Final_Project/issues"
-  },
-  "homepage": "https://github.com/Rafin31/Advanced_webtech_Final_Project#readme"
+  }
 }
