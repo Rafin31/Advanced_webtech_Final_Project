@@ -37,10 +37,22 @@ import AddMeeting from './manager_components/addMeeting';
 import Currency from './manager_components/currencyInfo';
 import ClientList from './manager_components/clientList';
 import SalaryList from './manager_components/salaryList';
+
+import meoDashboard from './meo_components/meodashboard';
+import ViewRequest from './meo_components/viewrequest';
+import AddRequest from './meo_components/addRequest';
+import EditRequest from './meo_components/editrequest';
+import RequestList from './meo_components/requestList';
+import CurrencyConverter from './meo_components/currencyConvert';
+import ReviewList from './meo_components/reviewList';
+import ViewReview from './meo_components/viewreview';
+import AddReview from './meo_components/addReview';
+import EditReview from './meo_components/editreview';
+import ProfileMeo from './meo_components/meo_profile';
+import PostnoticesMeo from './meo_components/Post';
 import Protected from './Protected';
 import request from 'request';
 import Logout from './logout';
-
 
 
 
@@ -133,6 +145,19 @@ function App() {
         <Route exact path="/requestlist/edit/:id" component={EditRequest} />
         <Route exact path="/requestlist/view/:id" component={ViewRequest} />
         <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+          
+         <Route exact path="/meo_dashboard" component={meoDashboard} />
+        <Route exact path="/addrequest" component={AddRequest} />
+        <Route exact path="/requestlist" component={RequestList} />
+        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
+        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
+        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
+        <Route exact path="/reviewlist" component={ReviewList} />
+        <Route exact path="/addreview" component={AddReview} />
+        <Route exact path="/reviewlist/edit/:id" component={EditReview} />
+        <Route exact path="/reviewlist/view/:id" component={ViewReview} />
+        <Route exact path="/meo_profile" component={ProfileMeo} />
+        <Route exact path="/post" component={PostnoticesMeo} />
 
 
         {/* <Route exact path="/postClient" component={Postclient} />
