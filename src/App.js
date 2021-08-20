@@ -2,6 +2,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import './admin_style.css';
 import './client_style.css';
+import './meo_style.css';
 import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from './admin_components/login';
