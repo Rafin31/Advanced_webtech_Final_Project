@@ -146,24 +146,14 @@ function App() {
         <Route exact path="/requestlist/edit/:id" component={EditRequest} />
         <Route exact path="/requestlist/view/:id" component={ViewRequest} />
         <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
-          
-         <Route exact path="/meo_dashboard" component={meoDashboard} />
-        <Route exact path="/addrequest" component={AddRequest} />
-        <Route exact path="/requestlist" component={RequestList} />
-        <Route exact path="/requestlist/edit/:id" component={EditRequest} />
-        <Route exact path="/requestlist/view/:id" component={ViewRequest} />
-        <Route exact path="/CurrencyConvert" component={CurrencyConverter} />
         <Route exact path="/reviewlist" component={ReviewList} />
         <Route exact path="/addreview" component={AddReview} />
         <Route exact path="/reviewlist/edit/:id" component={EditReview} />
         <Route exact path="/reviewlist/view/:id" component={ViewReview} />
         <Route exact path="/meo_profile" component={ProfileMeo} />
-        <Route exact path="/post" component={PostnoticesMeo} />
-
-
-        {/* <Route exact path="/postClient" component={Postclient} />
-        <Route exact path="/contactClient" component={noticeClient} />
-        */}
+        <Route exact path="/postClient" component={PostnoticesMeo} />
+//         <Route exact path="/contactClient" component={noticeClient} />
+//        }
 
         <Route component={Notfound404} />
       </Switch>
